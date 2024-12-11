@@ -10,7 +10,7 @@
 
 ```sh
 mkdir -p srv database config
-touch config/database.db
+touch database/database.db
 appjail oci run \
     -d \
     -o overwrite=force \
