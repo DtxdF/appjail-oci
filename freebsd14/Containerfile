@@ -4,4 +4,8 @@ WORKDIR /
 
 COPY Latest.conf /usr/local/etc/pkg/repos/Latest.conf
 
+RUN ASSUME_ALWAYS_YES=yes \
+        pkg -C /usr/local/etc/pkg/repos/Latest.conf update && \
+        pkg -C /usr/local/etc/pkg/repos/Latest.conf upgrade
+
 CMD ["/bin/sh"]
