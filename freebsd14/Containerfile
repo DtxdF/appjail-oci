@@ -1,0 +1,7 @@
+FROM localhost/freebsd14-minimal:14.2-RELEASE-amd64
+
+WORKDIR /
+
+COPY Latest.conf /usr/local/etc/pkg/repos/Latest.conf
+
+CMD ["/bin/sh"]
