@@ -1,0 +1,19 @@
+FROM docker.io/dtxdf007/freebsd14:14.2-RELEASE-amd64
+
+ARG FB_VER=2.31.2
+
+RUN pkg update && \
+    pkg upgrade -Uy && \
+    pkg install -Uy openssl && \
+    pkg install -Uy ca_root_nss && \
+    pkg clean -ay && \
+    fetch -o /tmp/filebrowser.tgz https://github.com/filebrowser/filebrowser/releases/download/v$FB_VER/freebsd-amd64-filebrowser.tar.gz && \
+    tar -C / -xf /tmp/filebrowser.tgz && \
+    chmod +x /filebrowser
+
+VOLUME /srv
+EXPOSE 80
+
+COPY config.json /.filebrowser.json
+
+ENTRYPOINT [ "/filebrowser" ]
