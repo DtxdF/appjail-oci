@@ -15,5 +15,5 @@ appjail oci run \
     -o virtualnet=":<random> default" \
     -o nat \
     -o template=/usr/local/share/examples/appjail/templates/freebsd-oci.conf \
-    localhost/freebsd14:14.2-RELEASE-amd64 freebsd14
+    docker.io/dtxdf007/freebsd14:14.2-RELEASE-amd64 freebsd14
 ```
